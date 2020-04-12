@@ -1,0 +1,15 @@
+{% block content%}
+
+
+<h1> Information of all users: </h1>
+
+
+<form method='POST' action="{% url 'createForm' %}">
+    <ul>
+        {%for forms in allForms%}
+    <li>{{ forms.name }}</li>
+        {% endfor %}
+    </ul>
+</form>
+
+{% endblock %}
