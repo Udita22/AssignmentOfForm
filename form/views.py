@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import modelCreateForm
-from .models import createForm
+from .models import userPreference
 import json
 
 
@@ -20,5 +20,5 @@ def createForm(request):
             return render(request, 'form/createform.html',{"form": modelCreateForm(),"error": "Name already exists, try using another name"})
 
 def showForm(request):
-    allForms = createForm.objects.all
+    allForms = userPreference.objects.all()
     return render(request, 'form/allForms.html',{"allForms":allForms})

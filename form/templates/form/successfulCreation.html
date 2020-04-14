@@ -1,6 +1,17 @@
+{% extends 'form/base.html' %} {% load crispy_forms_tags %} 
+
+{% block content %} 
+
 <h2>Thank you, for filling the form !!</h2>
 <div>
 <form action="{% url 'createForm' %}">
-    <button type='Submit'>Fill Again</button> 
+    <button type='Submit' class="btn btn-primary">Fill Again</button> 
 </form>
 </div>
+
+<form action="{% url 'showForm' %}">
+    <button type='Submit' class="btn btn-primary">List</button>
+</form>
+</div>
+
+{% endblock %}

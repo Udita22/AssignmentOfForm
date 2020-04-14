@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import createForm
+from .models import userPreference
 
-admin.site.register(createForm)
+admin.site.register(userPreference)
 
 # Register your models here.

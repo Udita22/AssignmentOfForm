@@ -1,15 +1,23 @@
+{% extends 'form/base.html' %} {% load crispy_forms_tags %} 
+
 {% block content%}
 
 
 <h1> Information of all users: </h1>
 
 
-<form method='POST' action="{% url 'createForm' %}">
+
     <ul>
-        {%for forms in allForms%}
-    <li>{{ forms.name }}</li>
+        {%for users in allForms%}
+    <li>{{ users.name }}</li>
+    <ul><li>{{ users.favourite_colour }}</li>
+        <li>{{ users.get_cat_or_dog_display }}</li></ul>
         {% endfor %}
-    </ul>
-</form>
+    </ul>   
+
+    <a href="{% url 'createForm' %}" class="btn btn-primary">Home</a>
+
+
+
 
 {% endblock %}
