@@ -10,15 +10,13 @@ def createForm(request):
     else:
         try:
             form = modelCreateForm(request.POST)
-            #form = request.POST
-            print(form)
-            print("It should print form")
             newForm = form.save(commit = False)
             newForm.save()
             return render(request, 'form/successfulCreation.html')
         except ValueError:
-            return render(request, 'form/createform.html',{"form": modelCreateForm(),"error": "Name already exists, try using another name"})
+            return render(request, 'form/createform.html',{"form": form})
+
 
 def showForm(request):
-    allForms = userPreference.objects.all()
-    return render(request, 'form/allForms.html',{"allForms":allForms})
+    users = userPreference.objects.all()
+    return render(request, 'form/allForms.html',{"users":users})

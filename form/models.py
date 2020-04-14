@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class userPreference(models.Model):
     name = models.CharField(max_length=100, unique=True, error_messages={'unique':"This name has already been registered."})
     favourite_colour = models.CharField(max_length = 100,blank=True)

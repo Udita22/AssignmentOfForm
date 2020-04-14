@@ -1,15 +1,10 @@
-{% extends 'form/base.html' %} {% load crispy_forms_tags %} 
-
-{% block content%}
-
+{% extends 'form/base.html' %} {% block content%}
 
 <h1> Fill details in the form </h1>
 
-<h2> {{ error }} </h2>
 <form method='POST'>
-    {% csrf_token %}
-    {{ form.as_p }}
+    {% csrf_token %} {{ form.as_p }}
     <button type='Submit' class="btn btn-success">Submit</button>
 </form>
 
-{% endblock %}
+<a href="{% url 'showForm' %}" class="btn btn-primary">List</a> {% endblock %}

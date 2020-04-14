@@ -1,23 +1,12 @@
-{% extends 'form/base.html' %} {% load crispy_forms_tags %} 
-
-{% block content%}
-
-
+{% extends 'form/base.html' %} {% block content%}
 <h1> Information of all users: </h1>
-
-
-
+<ul>
+    {%for user1 in users%}
+    <li>{{ user1.name }}</li>
     <ul>
-        {%for users in allForms%}
-    <li>{{ users.name }}</li>
-    <ul><li>{{ users.favourite_colour }}</li>
-        <li>{{ users.get_cat_or_dog_display }}</li></ul>
-        {% endfor %}
-    </ul>   
-
-    <a href="{% url 'createForm' %}" class="btn btn-primary">Home</a>
-
-
-
-
-{% endblock %}
+        <li>{{ user1.favourite_colour }}</li>
+        <li>{{ user1.get_cat_or_dog_display }}</li>
+    </ul>
+    {% endfor %}
+</ul>
+<a href="{% url 'createForm' %}" class="btn btn-primary">Home</a> {% endblock %}

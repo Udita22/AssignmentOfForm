@@ -1,22 +1,31 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-{% block content%}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> {% block content%}
 
 
 <h1> Fill the form </h1>
 
-<h2> {{ error }} </h2>
+{% if form.errors %} {% for field in form %} {% for error in field.errors %}
+<div class="alert alert-danger">
+    <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+<div class="alert alert-danger">
+    <strong>{{ error|escape }}</strong>
+</div>
+{% endfor %} {% endif %} {% if messages %} {% for message in messages %} alert(message); {% endfor %} {% endif %}
+
+<h2> {{ error.message }} </h2>
+<h2> {{ unique }} </h2>
 <h2> {{ message }} </h2>
 <form method='POST' style="width: 500px; margin: auto">
     {% csrf_token %}
-   <label for="name">Name</label>
-   <input type="text" id="name" class="form-control">
-   <label for="favouriteColour">Favourite Colour</label>
-   <input type="text" id="favouriteColour" class="form-control">
-   <label for="cat">Cat</label>
-   <input type="radio" id="cat" name="animal"><br>
-   <label for="dog">Dog</label>
-   <input type="radio" id="dog" name="animal"><br>
+    <label for="name">Name</label>
+    <input type="text" id="name" class="form-control">
+    <label for="favouriteColour">Favourite Colour</label>
+    <input type="text" id="favouriteColour" class="form-control">
+    <label for="cat">Cat</label>
+    <input type="radio" id="cat" name="animal"><br>
+    <label for="dog">Dog</label>
+    <input type="radio" id="dog" name="animal"><br>
     <button type='Submit'>Submit</button>
 </form>
 
