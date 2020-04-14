@@ -5,4 +5,4 @@ formTest/__pycache__/
 formTest/migrations
 formTest/settings/__pycache__/
 formTest/settings/env.py
-formTest/db.sqllite3
+db.sqllite3
