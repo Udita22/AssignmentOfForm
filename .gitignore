@@ -1,0 +1,8 @@
+form/migrations/__pycache__/
+form/migrations/
+form/__pycache__/
+formTest/__pycache__/
+formTest/migrations
+formTest/settings/__pycache__/
+formTest/settings/env.py
+formTest/db.sqllite3
